@@ -1,3 +1,4 @@
+<x-layouts.app>
 
 <div class="container px-4 px-lg-5 mt-5">
     <h2 class="fw-bolder mb-4">My Bookings</h2>
@@ -49,3 +50,4 @@
         </table>
     </div>
 </div>
+</x-layouts.app>

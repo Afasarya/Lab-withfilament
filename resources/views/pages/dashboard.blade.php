@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -115,4 +115,54 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @stack('scripts')
 </body>
-</html>
+</html> --}}
+
+<x-layouts.app>
+  <!-- Navbar -->
+
+
+  <!-- Hero Section -->
+  <div class="hero">
+      <section class="home-slider owl-carousel">
+          <div class="slider-item" style="background-image:url(images/bg_1.jpg);">
+              <div class="overlay"></div>
+              <div class="container">
+                  <div class="row no-gutters slider-text align-items-center justify-content-end">
+                      <div class="col-md-6 ftco-animate">
+                          <div class="text">
+                              <h2>More than a hotel... an experience</h2>
+                              <h1 class="mb-3">Hotel for the whole family, all year round.</h1>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Slider Item 2 -->
+          <div class="slider-item" style="background-image:url(images/bg_2.jpg);">
+              <div class="overlay"></div>
+              <div class="container">
+                  <div class="row no-gutters slider-text align-items-center justify-content-end">
+                      <div class="col-md-6 ftco-animate">
+                          <div class="text">
+                              <h2>Harbor Lights Hotel &amp; Resort</h2>
+                              <h1 class="mb-3">It feels like staying in your own home.</h1>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </div>
+
+  <!-- Booking Form Section -->
+  
+
+
+  <!-- Dynamic Content Section -->
+
+
+  
+
+  <!-- Scripts -->
+
+</x-layouts.app>

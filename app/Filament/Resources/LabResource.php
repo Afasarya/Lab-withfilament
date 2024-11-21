@@ -13,6 +13,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
+
 
 
 class LabResource extends Resource
@@ -37,6 +39,12 @@ class LabResource extends Resource
                         'booked' => 'Booked',
                     ])
                     ->required(),
+                    Forms\Components\FileUpload::make('image') // Input untuk unggah gambar
+                    ->image()
+                    ->directory('labs') // Lokasi penyimpanan di folder storage/app/public/labs
+                    ->maxSize(1024) // Maksimal ukuran file 1MB
+                    ->required(),
+            
             ]);
     }
 
@@ -45,6 +53,8 @@ class LabResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
+                ImageColumn::make('image') // Menampilkan gambar di tabel
+                    ->circular(), // Membuat gambar menjadi lingkaran
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {

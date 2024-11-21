@@ -1,19 +1,69 @@
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Harbor<span>lights</span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+  <div class="container">
+      <!-- Branding -->
+      <a class="navbar-brand" href="/">Harbor<span>lights</span></a>
+
+      <!-- Toggler for mobile view -->
+      <button 
+          class="navbar-toggler" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#ftco-nav" 
+          aria-controls="ftco-nav" 
+          aria-expanded="false" 
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
       </button>
 
+      <!-- Navbar Links -->
       <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="rooms.html" class="nav-link">Our Rooms</a></li>
-          <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+              <li class="nav-item">
+                  <a class="nav-link active" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="rooms.html">Our Rooms</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="restaurant.html">Restaurant</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('bookings.index') }}">Book Lab</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('my-bookings') }}">My Bookings</a>
+              </li>
+          </ul>
+          <div class="d-flex">
+              @auth
+                  <div class="dropdown">
+                      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" 
+                              data-bs-toggle="dropdown" aria-expanded="false">
+                          {{ Auth::user()->name }}
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <li>
+                              <form method="POST" action="{{ route('logout') }}">
+                                  @csrf
+                                  <button type="submit" class="dropdown-item">Logout</button>
+                              </form>
+                          </li>
+                      </ul>
+                  </div>
+              @else
+                  <a href="{{ route('login') }}" class="btn btn-light me-2">Login</a>
+                  <a href="{{ route('register') }}" class="btn btn-outline-light">Register</a>
+              @endauth
+          </div>
       </div>
-    </div>
-  </nav>
+  </div>
+</nav>
