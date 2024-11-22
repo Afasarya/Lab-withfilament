@@ -41,3 +41,5 @@ Route::middleware(['auth'])->group(function () {
 Route::prefix('admin')->group(function () {
     // Filament will handle these routes automatically
 });
+
+Route::get('/admin/bookings/export-pdf', [BookingController::class, 'exportPdf'])->name('bookings.export-pdf');

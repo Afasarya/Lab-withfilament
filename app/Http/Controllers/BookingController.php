@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Lab;
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class BookingController extends Controller
 {
@@ -71,4 +73,15 @@ class BookingController extends Controller
 
         return back()->with('success', 'Lab has been checked out successfully');
     }
+    public function exportPdf()
+{
+    // Ambil semua data booking
+    $bookings = Booking::with(['user', 'lab'])->get();
+
+    // Buat PDF dengan data booking
+    $pdf = Pdf::loadView('pdf.bookings', compact('bookings'));
+
+    // Unduh file PDF
+    return $pdf->download('booking-history.pdf');
+}
 }

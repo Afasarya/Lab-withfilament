@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Actions\Action;
+
 
 class BookingResource extends Resource
 {
@@ -81,7 +83,13 @@ class BookingResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-            ]);
+            ])
+            ->headerActions([
+                Action::make('Export PDF')
+                    ->url(route('bookings.export-pdf'))
+                    ->openUrlInNewTab()
+                ]);
+            
     }
 
 
