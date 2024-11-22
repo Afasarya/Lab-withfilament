@@ -21,21 +21,7 @@
               <li class="nav-item">
                   <a class="nav-link active" href="/">Home</a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="rooms.html">Our Rooms</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="restaurant.html">Restaurant</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="about.html">About Us</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="blog.html">Blog</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
-              </li>
+              
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('bookings.index') }}">Book Lab</a>
               </li>
